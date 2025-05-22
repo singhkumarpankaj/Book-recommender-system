@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book Recommender System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <style>
+        .text-white {
+            color: blanchedalmond !important;
+        }
+    </style>
+</head>
+
+<body style="background-color: black;">
+
+    <nav class="navbar navbar-expand-lg" style="background-color: green;">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">My Book Recommender</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/recommend">Recommend</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-white" style="font-size: 50px;">Top 50 Books</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for i in range(book_name|length) %}
+            <div class="col-md-3" style="margin-top: 50px;">
+                <div class="card h-100">
+                    <img class="card-img-top" src="{{ image[i] }}" alt="Book cover for {{ book_name[i] }}">
+                    <div class="card-body bg-dark">
+                        <p class="text-white fw-bold">{{ book_name[i] }}</p>
+                        <h5 class="text-white">Author: {{ author[i] }}</h5>
+                        <h6 class="text-white">Votes: {{ votes[i] }}</h6>
+                        <h6 class="text-white">Rating: {{ rating[i] }}</h6>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+
+</html>
